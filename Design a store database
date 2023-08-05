@@ -1,4 +1,4 @@
-CREATE TABLE store (id INTEGER PRIMARY KEY , name TEXT, quantity INTEGER, aisle INTEGER, color TEXT);
+CREATE TABLE store (id INTEGER PRIMARY KEY , name TEXT, in_stock INTEGER, aisle INTEGER, color TEXT);
 
 INSERT INTO store VALUES (1, "SHIRT", 20, 1, "PINK");
 INSERT INTO store VALUES (2, "JEANS", 7, 7, "BLUE");
@@ -15,7 +15,17 @@ INSERT INTO store VALUES (12, "SHORTS", 17, 7, "WHITE");
 INSERT INTO store VALUES (13, "JEWELRY", 2, 8, "GOLD");
 INSERT INTO store VALUES (14, "SKIRTS", 32, 7, "BLACK");
 INSERT INTO store VALUES (15, "HATS", 30, 5, "BLUE");
-SELECT * FROM store;
 
 SELECT * FROM store;
-SELECT sum(quantity) FROM store
+
+--The total of in stock clothing.
+SELECT SUM(in_stock) FROM store;
+
+--showing what item are in aisle 5-8  
+SELECT * FROM store WHERE aisle > 4 ORDER BY aisle desc;
+
+--what items in stock are blue?
+SELECT * FROM store WHERE color = "BLUE";
+
+
+
