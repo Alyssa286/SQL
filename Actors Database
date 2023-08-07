@@ -1,0 +1,32 @@
+CREATE TABLE actors(
+id INTEGER PRIMARY KEY, name TEXT, movies TEXT, birth_place TEXT);
+
+INSERT INTO actors (name, movies, birth_place) VALUES ("Jennifer Aniston","just go with it", "California");
+INSERT INTO actors (name, movies, birth_place) VALUES ("Lisa Kudrow", "easy A", "California");
+INSERT INTO actors (name, movies, birth_place) VALUES( "David Schwimmer", "madagascar", " New York");
+INSERT INTO actors (name, movies, birth_place) VALUES ("Courtney Cox", "scream", "alabama");
+INSERT INTO actors (name, movies, birth_place) VALUES ("Matt LeBlanc", "lost in space", "Massachusetts");
+INSERT INTO actors (name, movies, birth_place) VALUES ("Matthew Perry", "17 again", "Massachusetts");
+INSERT INTO actors(name, movies, birth_place) VALUES ("Paul Rudd", "ant-man", "New Jersey");
+INSERT INTO actors(name, movies, birth_place) VALUES ("Cole Sprouse", "big daddy", "Italy");
+
+SELECT * FROM actors;
+
+SELECT name FROM actors WHERE birth_place= "California";
+
+CREATE TABLE networth (
+id INTEGER PRIMARY KEY, actor_id INTEGER, worth INTEGER);
+
+INSERT INTO networth (actor_id, worth) VALUES (1, 320000000);
+INSERT INTO networth (actor_id, worth) VALUES (2, 130000000);
+INSERT INTO networth (actor_id, worth) VALUES (3, 120000000);
+INSERT INTO networth (actor_id, worth) VALUES (4, 150000000);
+INSERT INTO networth (actor_id, worth) VALUES (5, 85000000);
+INSERT INTO networth (actor_id, worth) VALUES (6, 120000000);
+INSERT INTO networth (actor_id, worth) VALUES (7, 70000000);
+INSERT INTO networth (actor_id, worth) VALUES (8, 8000000);
+SELECT * FROM networth;
+
+SELECT actors.name, actors.movies, networth.worth FROM actors JOIN networth ON actors.id=networth.actor_id;
+
+SELECT actors.name , networth. worth FROM actors JOIN networth ON actors.id=networth. actor_id GROUP BY name ORDER BY worth desc;
