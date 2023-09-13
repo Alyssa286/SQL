@@ -1,0 +1,23 @@
+CREATE TABLE Myapps (id INTEGER PRIMARY KEY, name TEXT, category TEXT, rating INTEGER, SizeMB INTEGER);
+
+
+
+INSERT INTO Myapps VALUES (1, "cashapp", "finance", 4.8, 327.5);
+INSERT INTO Myapps VALUES (2, "instagram", "photo&video", 4.7, 259.9);
+INSERT INTO Myapps VALUES (3, "yelp", "food_drink",4.4, 263.6);
+INSERT INTO Myapps VALUES (4, "hulu", "entertainment", 4.6, 72.6);
+INSERT INTO Myapps VALUES  (5, "xbox","entertainment" , 4.6, 105.1);
+INSERT INTO Myapps VALUES  (6, "amazon", "shopping", 4.8, 204.2);
+INSERT INTO Myapps VALUES  (7, "etsy", "shopping", 4.9, 101.5);
+INSERT INTO Myapps VALUES (8, "max", "entertainment", 4.8, 94.2);
+INSERT INTO Myapps VALUES (9, "spotify", "music", 4.8, 142.7);
+
+SELECT * FROM Myapps;
+
+---Using an UPDATE to emulate what happens when I edit data in the table.---
+UPDATE Myapps SET category= "photo_video" WHERE id=2;
+SELECT * FROM Myapps;
+
+---Using DELETE to emulate what happens when I delete data in the my table.---
+DELETE FROM Myapps WHERE id=5;
+SELECT * FROM Myapps;
