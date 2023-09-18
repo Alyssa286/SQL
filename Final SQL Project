@@ -1,0 +1,33 @@
+--Show Customers (their first names, phone number, and email) who are in the USA. 
+SELECT FirstName, Phone, Email  FROM chinook.customers WHERE country = "USA";
+
+--Show only the Customers whose name startes with "a" and don't live in the USA.  .
+SELECT * FROM chinook.Customers WHERE FirstName LIKE "a%" AND Country != "USA";
+
+--Find the Invoices of customers who are from France. The resulting table should show the customer's full name, Invoice ID, Date of the invoice, and billing country.
+SELECT cust.FirstName, cust.LastName, inv.InvoiceId, inv.BillingCountry, inv.InvoiceDate
+FROM chinook.invoices as inv 
+LEFT JOIN chinook.customers as cust 
+on inv.CustomerId = cust.CustomerId 
+WHERE inv.BillingCountry = "France";
+
+--Show the employees who live in Calgary and work as a Sales Agent
+SELECT * FROM chinook.employees WHERE title = "Sales Support Agent" AND city= "Calgary";
+
+--Find a unique/distinct list of billing cities from the Invoice table.
+SELECT DISTINCT BillingCity FROM chinook.invoices; 
+
+--How many Invoices were there from  August to October 2012?
+SELECT COUNT(*) FROM chinook.Invoices WHERE InvoiceDate BETWEEN '2012-08-01' AND '2012-10-31';
+
+--What are the total sales for august 2012?
+SELECT SUM(total) FROM chinook.invoices WHERE InvoiceDate BETWEEN '2012-01-01' AND '2012-31-12'; 
+
+--Write a query that includes the purchased track name and composer with each unit price.
+SELECT trk.Name,trk.Composer, it.UnitPrice FROM chinook.invoice_items AS it
+JOIN chinook.tracks AS trk ON it.TrackId= trk. TrackId;
+
+--Write a query showing the genre of all the songs including the artist name.
+SELECT art.Name AS ArtistName, gen.Name AS Genre, trk.Name AS TrackName FROM chinook.artists as art 
+JOIN chinook.tracks as trk ON art.Name= trk.composer
+JOIN chinook.genres as gen ON trk.GenreId= gen.GenreId; 
